@@ -1,0 +1,30 @@
+Which city has the highest average PM2.5 levels in 2023?
+Show monthly PM2.5 trends for Delhi in 2023
+Compare PM2.5 levels between winter and summer months
+Which month had the highest pollution levels in Mumbai?
+Calculate the average PM2.5 for all cities in November 2023
+Rank top 10 cities by the highest PM2.5 pollution levels
+Show seasonal pollution patterns across all cities
+Compare all pollutant levels between weekdays and weekends
+Which cities exceed the WHO PM2.5 guidelines of 15 µg/m³?
+Plot yearly PM2.5 trends from 2020 to 2023 for major cities
+How much NCAP funding did Delhi receive vs Mumbai?
+Which NCAP cities achieved the best PM2.5 reduction?
+Does wind speed above 3 m/s reduce PM2.5 levels in Delhi?
+Show the correlation between temperature and PM2.5 in the summer months
+Which states in India with populations above 1 million have average PM2.5 concentrations exceeding 60 µg/m³?
+Compare PM2.5 levels in high-funded vs low-funded NCAP cities
+Does rainfall help reduce pollution levels during the monsoon?
+Which meteorological factor correlates most with PM2.5 reduction?
+Show monthly PM2.5 trends for the top 5 Indian states by population
+Does humidity above 80% help reduce pollution in coastal cities?
+Compare NO2 vs PM2.5 levels in traffic-heavy areas
+Which NCAP-funded cities still exceed WHO guidelines?
+Show relationship between city population and average PM2.5
+Compare PM2.5 improvement rates: Delhi vs Mumbai vs Kolkata
+Create simple scatter plot of PM2.5 vs PM10 correlation
+Show state-wise average PM2.5 levels for policy planning
+Which cities need immediate intervention with PM2.5 above 60 µg/m³?
+Compare pollution trends between North vs South Indian cities
+Show seasonal variation in PM2.5 across different climate zones
+Identify cities with consistent pollution improvement over time

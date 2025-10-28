@@ -1,0 +1,47 @@
+[theme]
+# Base theme
+base = "light"
+
+# Main UI colors
+primaryColor = "#8AA29E"                # Buttons, highlights
+backgroundColor = "#FFF9F2"             # Main background
+secondaryBackgroundColor = "#F4E8D4"    # Sidebar, panels
+textColor = "#5C5C5C"                   # General text
+font = "sans-serif"
+
+# Chart categorical colors (for Plotly, Altair, Vega-Lite)
+chartCategoricalColors = [
+    "#8AA29E", # Primary teal
+    "#F4E8D4", # Light beige
+    "#FFB572", # Soft orange
+    "#FF6F61", # Coral
+    "#6C5B7B", # Purple
+    "#C06C84", # Light magenta
+    "#355C7D", # Dark blue
+    "#F67280", # Pink
+    "#99B898", # Mint green
+    "#FFEE93"  # Light yellow
+]
+
+# Chart sequential colors (gradients for continuous data)
+chartSequentialColors = [
+    "#EAF4F1", # very light teal
+    "#D0E7E2",
+    "#B7DBD4",
+    "#9DCEC5",
+    "#84C2B7",
+    "#6AB5A8",
+    "#51A997",
+    "#379C89",
+    "#208E7B",
+    "#077F6C"  # dark teal
+]
+
+# Optional: UI radius and borders
+baseRadius = "0.5rem"
+buttonRadius = "0.5rem"
+borderColor = "#D8D8D8"
+dataframeBorderColor = "#D8D8D8"
+dataframeHeaderBackgroundColor = "#F4E8D4"
+showWidgetBorder = true
+showSidebarBorder = true

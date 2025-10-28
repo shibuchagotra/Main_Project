@@ -1,0 +1,10 @@
+*.ipynb
+venv
+overview.txt
+__pycache__
+Trash
+Testing
+Backend/.env
+__pycache__/
+*.pyc
+

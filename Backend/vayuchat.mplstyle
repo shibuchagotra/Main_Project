@@ -1,0 +1,93 @@
+# VayuChat - Modern Professional Style
+# Inspired by modern data visualization best practices
+
+# Typography & Layout
+font.size: 11
+font.family: sans-serif
+font.sans-serif: Inter, SF Pro Display, Segoe UI, system-ui, Arial
+figure.titlesize: 14
+axes.titlesize: 12
+axes.labelsize: 10
+xtick.labelsize: 9
+ytick.labelsize: 9
+legend.fontsize: 9
+
+# Figure & DPI - Ultra High Resolution
+figure.dpi: 1200
+figure.facecolor: white
+figure.edgecolor: none
+figure.figsize: 9, 6
+figure.autolayout: True
+
+# Modern Color Palette (inspired by Tailwind/GitHub)
+axes.prop_cycle: cycler('color', ['2563eb', 'dc2626', '059669', 'ea580c', '7c3aed', '0891b2', 'be123c', '16a34a', 'c2410c', '9333ea'])
+
+# Axes Styling
+axes.facecolor: white
+axes.edgecolor: e5e7eb
+axes.linewidth: 1
+axes.labelcolor: 374151
+axes.axisbelow: True
+axes.spines.left: True
+axes.spines.bottom: True
+axes.spines.top: False
+axes.spines.right: False
+
+# Grid (subtle and clean)
+axes.grid: True
+grid.color: f3f4f6
+grid.linewidth: 0.8
+grid.alpha: 0.7
+axes.grid.axis: both
+
+# Ticks
+xtick.direction: out
+ytick.direction: out
+xtick.major.size: 4
+ytick.major.size: 4
+xtick.minor.size: 2
+ytick.minor.size: 2
+xtick.color: 6b7280
+ytick.color: 6b7280
+xtick.major.pad: 7
+ytick.major.pad: 7
+
+# Legend
+legend.frameon: True
+legend.fancybox: True
+legend.shadow: False
+legend.framealpha: 0.95
+legend.facecolor: white
+legend.edgecolor: e5e7eb
+legend.borderpad: 0.8
+legend.columnspacing: 2
+legend.handlelength: 1.5
+legend.handletextpad: 0.8
+
+# Lines & Markers
+lines.linewidth: 2.5
+lines.markersize: 7
+lines.solid_capstyle: round
+patch.linewidth: 0.5
+patch.facecolor: 3b82f6
+patch.edgecolor: none
+patch.antialiased: True
+
+# Scatter plots
+scatter.marker: o
+scatter.edgecolors: white
+
+# Bars
+patch.force_edgecolor: False
+
+# Text & Annotations
+text.color: 1f2937
+text.antialiased: True
+
+# Savefig - Ultra High Resolution
+savefig.dpi: 1200
+savefig.facecolor: white
+savefig.edgecolor: none
+savefig.bbox: tight
+savefig.pad_inches: 0.2
+savefig.format: png
