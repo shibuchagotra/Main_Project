@@ -24,3 +24,5 @@ scikit-learn
 tensorflow
 geodatasets
 shapely
+groq 
+streamlit-mic-recorder
