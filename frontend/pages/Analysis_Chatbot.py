@@ -1,29 +1,22 @@
 import streamlit as st
 import os
-import json
-import pandas as pd
-import random
 from datetime import datetime
 from os.path import join
-
+from groq import Groq
+from streamlit_mic_recorder import mic_recorder
+import tempfile
 from dotenv import load_dotenv
-from langchain_groq import ChatGroq
-from streamlit_feedback import streamlit_feedback
-
-from PIL import Image
-import time
 import uuid
 import asyncio
-
-# Gemini API requires async
-try:
-    asyncio.get_running_loop()
-except RuntimeError:
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-#functions for the graph
+from dotenv import load_dotenv
 from langgraph_sdk import get_client
 
+
+load_dotenv(override=True)
+
+
+# Initialize Groq client and LangGraph client
+groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 client = get_client(url="http://127.0.0.1:2024")
 
 
@@ -101,33 +94,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# JavaScript for interactions
-# st.markdown("""
-# <script>
-# function scrollToBottom() {
-#     setTimeout(function() {
-#         const mainContainer = document.querySelector('.main-container');
-#         if (mainContainer) {
-#             mainContainer.scrollTop = mainContainer.scrollHeight;
-#         }
-#         window.scrollTo(0, document.body.scrollHeight);
-#     }, 100);
-# }
-
-# function toggleCode(header) {
-#     const codeBlock = header.nextElementSibling;
-#     const toggleText = header.querySelector('.toggle-text');
-    
-#     if (codeBlock.style.display === 'none') {
-#         codeBlock.style.display = 'block';
-#         toggleText.textanswer = 'Click to collapse';
-#     } else {
-#         codeBlock.style.display = 'none';
-#         toggleText.textanswer = 'Click to expand';
-#     }
-# }
-# </script>
-# """, unsafe_allow_html=True)
 
 # FORCE reload environment variables
 load_dotenv(override=True)
@@ -455,10 +421,50 @@ def show_custom_response(response):
 # Display chat history
 for response_id, response in enumerate(st.session_state.responses):
     status = show_custom_response(response)
-    
+# ================== CSS FIXES ==================
 
-# Chat input with better guidance
-prompt = st.chat_input("💬 Ask about air quality trends, pollution analysis, or city comparisons...", key="main_chat")
+# =============== BOTTOM BAR WITH INPUT + MIC ===============
+with st.container():
+    col1, col2 = st.columns([8, 1])
+
+    with col1:
+        prompt = st.chat_input(
+            "💬 Ask about air quality trends, pollution analysis, or city comparisons...",
+            key="main_chat"
+        )
+
+    with col2:
+        audio_data = mic_recorder(
+            start_prompt="🎤",
+            stop_prompt="⏹️",
+            just_once=True,
+            use_container_width=True,
+            key="mic_input"
+        )
+
+# ================== AUDIO → TEXT (Groq Whisper) ==================
+if audio_data and audio_data.get("bytes"):
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmpfile:
+        tmpfile.write(audio_data["bytes"])
+        tmpfile_path = tmpfile.name
+
+    with open(tmpfile_path, "rb") as audio_file:
+        transcript = groq_client.audio.transcriptions.create(
+            model="whisper-large-v3",
+            file=audio_file
+        )
+
+    os.remove(tmpfile_path)
+
+    if transcript.text:
+        prompt = transcript.text
+        st.toast(f"🎙️ You said: {prompt}", icon="🗣️")
+
+# ================== HANDLE PROMPT ==================
+if prompt:
+    st.chat_message("user").markdown(prompt)
+    # your chatbot logic here...
+
 
 # Handle selected prompt from quick prompts
 if selected_prompt:
