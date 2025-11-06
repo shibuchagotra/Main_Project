@@ -147,7 +147,7 @@ def predict_next_day(user_df, pollutant_name, feature_cols):
 # -------------------------------------------------------
 # --- Streamlit Interface ---
 # -------------------------------------------------------
-st.title("🌤 Hybrid Air Quality Forecast Dashboard")
+st.title("🌤 Air Pollutants Forecast Dashboard for Delhi")
 
 pollutant = st.selectbox("Select pollutant to predict:", list(POLLUTANTS.keys()))
 days_to_predict = st.number_input("Days to predict (max 7):", min_value=1, max_value=7, value=1)
@@ -185,7 +185,7 @@ if st.button("Fetch Data & Forecast"):
     df_merged["Timestamp"] = pd.to_datetime(df_merged["Timestamp"]).dt.tz_localize(None)
     df_merged = df_merged.interpolate(limit_direction="both").fillna(method="bfill").fillna(method="ffill")
 
-    st.subheader("✅ Last 24 Days Data (Merged)")
+    st.subheader(" Last 24 Days Data from OpenAQ")
     st.dataframe(df_merged)
 
     # Feature columns (everything except Timestamp and target pollutant)
