@@ -7,4 +7,4 @@ Testing
 Backend/.env
 __pycache__/
 *.pyc
-
+.env

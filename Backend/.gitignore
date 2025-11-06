@@ -2,3 +2,5 @@
 *.ipynb
 .env
 Data
+commands.txt
+*.png
